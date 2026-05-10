@@ -7,5 +7,23 @@ variable "instance_name" {
 variable "instance_type" {
   description = "The EC2 instance's type."
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
+}
+
+variable "environment" {
+  description = "Environment tag value (e.g., dev, staging, prod)."
+  type        = string
+  default     = "dev"
+}
+
+variable "owner" {
+  description = "Owner tag value indicating who owns this resource."
+  type        = string
+  default     = "hcp-terraform"
+}
+
+variable "project" {
+  description = "Project tag value for the EC2 instance."
+  type        = string
+  default     = "hcp-terraform"
 }

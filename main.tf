@@ -39,7 +39,19 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids = [module.vpc.default_security_group_id]
   subnet_id              = module.vpc.private_subnets[0]
 
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
+
   tags = {
-    Name = var.instance_name
+    Name        = var.instance_name
+    Environment = var.environment
+    Owner       = var.owner
+    Project     = var.project
+    CloudriftDrift = "manual-console-change-20260510"
   }
 }
