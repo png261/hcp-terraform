@@ -9,3 +9,9 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
+
+variable "s3_bucket_name" {
+  description = "Name of the S3 bucket with encryption and versioning."
+  type        = string
+  default     = "learn-hcp-terraform-bucket"
+}
