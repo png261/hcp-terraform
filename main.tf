@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "ap-southeast-1"
 }
 
 data "aws_availability_zones" "available" {
@@ -30,7 +30,6 @@ module "vpc" {
 
   enable_dns_hostnames = true
 }
-
 
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
