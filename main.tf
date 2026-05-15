@@ -31,7 +31,6 @@ module "vpc" {
   enable_dns_hostnames = true
 }
 
-
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
@@ -39,7 +38,18 @@ resource "aws_instance" "app_server" {
   vpc_security_group_ids = [module.vpc.default_security_group_id]
   subnet_id              = module.vpc.private_subnets[0]
 
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
+
   tags = {
-    Name = var.instance_name
+    Name        = var.instance_name
+    Environment = "dev"
+    Owner       = "platform"
+    Project     = "hcp-terraform"
   }
 }
