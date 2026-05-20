@@ -1,11 +1,11 @@
-variable "instance_name" {
-  description = "Value of the EC2 instance's Name tag."
+variable "aws_region" {
+  description = "AWS region for the demo resources."
   type        = string
-  default     = "learn-terraform"
+  default     = "us-west-2"
 }
 
-variable "instance_type" {
-  description = "The EC2 instance's type."
+variable "demo_suffix" {
+  description = "Globally unique suffix for the demo S3 bucket and security group."
   type        = string
-  default     = "t2.micro"
+  default     = "649519997247-20260520"
 }

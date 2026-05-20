@@ -1,12 +1,9 @@
-output "instance_hostname" {
-  description = "Private DNS name of the EC2 instance."
-  value       = aws_instance.app_server.private_dns
+output "bucket_name" {
+  description = "Demo S3 bucket name."
+  value       = aws_s3_bucket.test_bucket.id
 }
 
-output "instance_security_group_ids" {
-  value = aws_instance.app_server.vpc_security_group_ids
-}
-
-output "instance_subnet" {
-  value = aws_instance.app_server.subnet_id
+output "security_group_id" {
+  description = "Demo security group ID."
+  value       = aws_security_group.test_sg.id
 }
