@@ -32,6 +32,7 @@ resource "aws_security_group" "test_sg" {
   name        = "${local.name_prefix}-${var.demo_suffix}"
   description = "Cloudrift thesis drift detection demo security group"
   vpc_id      = data.aws_vpc.default.id
+  ingress     = []
 
   egress {
     description = "Allow outbound HTTPS"
