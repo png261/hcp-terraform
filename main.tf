@@ -10,6 +10,7 @@ locals {
   name_prefix = "cloudrift-thesis-demo"
 }
 
+# Drift remediation: terraform apply reconciles the induced live drift by re-enabling versioning and removing unmanaged SSH ingress.
 resource "aws_s3_bucket" "test_bucket" {
   bucket        = "${local.name_prefix}-${var.demo_suffix}"
   force_destroy = true
