@@ -14,17 +14,13 @@ resource "aws_s3_bucket" "test_bucket" {
   bucket        = "${local.name_prefix}-${var.demo_suffix}"
   force_destroy = true
 
+  versioning {
+    enabled = true
+  }
+
   tags = {
     Name        = "${local.name_prefix}-${var.demo_suffix}"
     Environment = "thesis-demo"
-  }
-}
-
-resource "aws_s3_bucket_versioning" "test_bucket" {
-  bucket = aws_s3_bucket.test_bucket.id
-
-  versioning_configuration {
-    status = "Enabled"
   }
 }
 
