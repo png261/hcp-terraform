@@ -20,6 +20,7 @@ resource "aws_s3_bucket" "test_bucket" {
   }
 }
 
+# Drift remediation: terraform apply restores versioning after the induced thesis demo drift.
 resource "aws_s3_bucket_versioning" "test_bucket" {
   bucket = aws_s3_bucket.test_bucket.id
 
@@ -28,6 +29,7 @@ resource "aws_s3_bucket_versioning" "test_bucket" {
   }
 }
 
+# Drift remediation: terraform apply removes any induced open SSH ingress from live state.
 resource "aws_security_group" "test_sg" {
   name        = "${local.name_prefix}-${var.demo_suffix}"
   description = "Cloudrift thesis drift detection demo security group"
